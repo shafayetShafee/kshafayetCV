@@ -22,6 +22,7 @@
 \RequirePackage{fontawesome5}                % Icons for contact info
 \RequirePackage{academicons}
 \RequirePackage[oldstyle,proportional]{ETbb}% ET Book font for elegant typography
+% \RequirePackage[sc,osf]{mathpazo}
 \RequirePackage{geometry}                   % Page layout customization
 \RequirePackage{sectsty}                    % Section formatting
 \RequirePackage{hyperref}                   % Hyperlinks functionality
@@ -49,7 +50,7 @@
 % Clean typography settings
 \setlength{\parindent}{0pt}     % Remove paragraph indentation
 \setlength{\parskip}{0.2em}     % Set spacing between paragraphs
-\titlespacing*{\section}{0pt}{1.2em}{0.4em}      % Section spacing
+\titlespacing*{\section}{0pt}{1.3em}{0.4em}      % Section spacing
 \titlespacing*{\subsection}{0pt}{0.8em}{0.2em}   % Reduced subsection spacing
 
 % Page numbering and last updated date in footer
@@ -114,7 +115,7 @@
 \newcommand{\contactbar}[7]{%
   \small
   \begin{center}
-    \setlength{\baselineskip}{1.15\baselineskip}
+    \setlength{\baselineskip}{1.2\baselineskip}
     \mbox{\faEnvelope\space\href{mailto:#1}{#1}} \enspace
     \mbox{\faGlobe\space\href{https://#2}{#2}} \enspace
     \mbox{\faGithub\space\href{https://github.com/#3}{#3}} \enspace
@@ -147,12 +148,12 @@
 %   #4: Position title or degree
 %   #5: Date range
 \newcommand{\cvblock}[5][]{%
-  \textbf{#2} \hfill #3 \\
+  \textbf{#2} \hfill #3 \\[1pt]
   #4 \hfill #5
   \par
   \ifx&#1&\else
     \vspace{2pt}
-    \begin{itemize}[itemsep=2pt, parsep=0pt, topsep=0pt, leftmargin=*]
+    \begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
       #1
     \end{itemize}
   \fi
@@ -169,19 +170,19 @@
 %   #6: Location (city, state/country)
 %   #7: Date range
 \NewDocumentCommand{\edublock}{o m o m o m m}{%
-  \textbf{#2} \hfill #6 \\
+  \textbf{#2} \hfill #6 \\[1pt]
   \ifx&#3&
     #4 \hfill #7%
-    \ifx&#5&\else \\ #5\fi
+    \ifx&#5&\else \\[1pt] #5\fi
   \else
-    {\small\color{gray!60!black}#3} \hfill #7 \\
+    {\small\color{gray!60!black}#3} \hfill #7 \\[1pt]
     #4%
-    \ifx&#5&\else \\ #5\fi
+    \ifx&#5&\else \\[1pt] #5\fi
   \fi
   \par
   \ifx&#1&\else
     \vspace{2pt}
-    \begin{itemize}[itemsep=2pt, parsep=0pt, topsep=0pt, leftmargin=*]
+    \begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
       #1
     \end{itemize}
   \fi
