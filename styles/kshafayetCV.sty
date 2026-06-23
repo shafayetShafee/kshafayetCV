@@ -21,8 +21,6 @@
 \RequirePackage[T1]{fontenc}                % Font encoding
 \RequirePackage{fontawesome5}               % Icons for contact info
 \RequirePackage{academicons}                % Icons for contact info (orcid)
-\RequirePackage[oldstyle,proportional]{ETbb}% ET Book font for elegant typography
-% \RequirePackage[sc,osf]{mathpazo}
 \RequirePackage{geometry}                   % Page layout customization
 \RequirePackage{sectsty}                    % Section formatting
 \RequirePackage{hyperref}                   % Hyperlinks functionality
@@ -33,40 +31,164 @@
 \RequirePackage{etoolbox}                   % Conditional commands support
 \RequirePackage{xparse}
 \RequirePackage{xstring}
+\RequirePackage{fontspec}
+\RequirePackage{kvoptions}
+
+% \RequirePackage[oldstyle,proportional]{ETbb} % ET Book font for elegant typography
+% \RequirePackage[sc,osf]{mathpazo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PAGE LAYOUT CONFIGURATION
+% GLOBAL FONT CONFIGURATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Set margins for optimal readability and content space
-\geometry{
-  letterpaper,          % Use letter paper size
-  left=2.5cm,           % Left margin
-  right=2.5cm,          % Right margin
-  top=2cm,              % Top margin
-  bottom=2.5cm          % Bottom margin
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmonofont[
+  Path = ../fonts/fira-mono/,
+  Scale = MatchLowercase,
+  Extension = .ttf,
+  UprightFont = FiraMono-Regular,
+  ItalicFont = FiraMono-Regular,
+  BoldFont = FiraMono-Bold
+]{FiraMono-Regular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TYPE: ACADEMIC VS INSDUSTRY CONFIGURATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\SetupKeyvalOptions{
+  family=CV,
+  prefix=CV@
 }
 
-% Clean typography settings
-\setlength{\parindent}{0pt}     % Remove paragraph indentation
-\setlength{\parskip}{0.2em}     % Set spacing between paragraphs
-\titlespacing*{\section}{0pt}{1.3em}{0.4em}      % Section spacing
-\titlespacing*{\subsection}{0pt}{0.8em}{0.2em}   % Reduced subsection spacing
+\DeclareStringOption[academic]{type}
+\ProcessKeyvalOptions*
 
-% Page numbering and last updated date in footer
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{\footnotesize Page \thepage}
-\fancyfoot[R]{\footnotesize Last updated: \today}
+\IfStrEqCase{\CV@type}{
+  {academic}{
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % ACADEMIC FONTS
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \setmainfont[
+      Path = ../fonts/minion-pro/,
+      Extension = .otf,
+      Renderer = Basic,
+      Numbers = {Proportional, OldStyle},
+      BoldFont = MinionPro-Bold,
+      ItalicFont = MinionPro-It,
+      BoldItalicFont = MinionPro-BoldIt,
+    ]{MinionPro-Regular}
+
+    \setsansfont[
+      Path = ../fonts/cabin/,
+      Extension = .ttf,
+      Scale = MatchLowercase,
+      BoldFont = Cabin-Bold,
+      ItalicFont = Cabin-Italic,
+      BoldItalicFont = Cabin-BoldItalic,
+    ]{Cabin-Regular}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % ACADEMIC PAGE LAYOUT
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \geometry{
+      letterpaper,          % Use letter paper size
+      left=2.5cm,           % Left margin
+      right=2.5cm,          % Right margin
+      top=2cm,              % Top margin
+      bottom=2.5cm          % Bottom margin
+    }
+
+    % Clean typography settings
+    \setlength{\parindent}{0pt}     % Remove paragraph indentation
+    \setlength{\parskip}{0.2em}     % Set spacing between paragraphs
+    \titlespacing*{\section}{0pt}{1.3em}{0.4em}      % Section spacing
+    \titlespacing*{\subsection}{0pt}{0.8em}{0.2em}   % Reduced subsection spacing
+
+    % Page numbering and last updated date in footer
+    \pagestyle{fancy}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[L]{\footnotesize Page \thepage}
+    \fancyfoot[R]{\footnotesize Last updated: \today}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % ACADEMIC TYPOGRAPHY AND STYLING
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Section styling with small caps for elegant headers
+    \titleformat{\section}{\Large\normalfont\scshape\bfseries}{\thesection}{1em}{}
+    \allsectionsfont{\mdseries\scshape}
+
+    % Primary theme color
+    \definecolor{primary}{RGB}{83, 39, 115}  % Royal purple
+
+  }
+  {industry}{
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % INDUSTRY FONTS
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \setmainfont[
+        Path = ../fonts/ibm-plex-sans/,
+        Extension = .ttf,
+        UprightFont = IBMPlexSans-Regular,
+        ItalicFont = IBMPlexSans-Italic,
+        BoldFont = IBMPlexSans-SemiBold,
+        BoldItalicFont = IBMPlexSans-SemiBoldItalic
+    ]{IBM Plex Sans}
+
+    \setsansfont[
+      Path = ../fonts/ibm-plex-sans/,
+      Extension = .ttf,
+      UprightFont = IBMPlexSans-Regular,
+      ItalicFont = IBMPlexSans-Italic,
+      BoldFont = IBMPlexSans-SemiBold,
+      BoldItalicFont = IBMPlexSans-SemiBoldItalic,
+    ]{IBM Plex Sans}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % INDUSTRY PAGE LAYOUT
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \pagestyle{empty}
+
+    \geometry{
+      a4paper,              % Use A4 paper size
+      left=1.8cm,           % Left margin
+      right=1.8cm,          % Right margin
+      top=1.5cm,              % Top margin
+      bottom=1.5cm          % Bottom margin
+    }
+
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{0.1em}
+    \titlespacing*{\section}{0pt}{1.0em}{0.3em}
+    \titlespacing*{\subsection}{0pt}{0.6em}{0.2em}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % INDUSTRY TYPOGRAPHY AND STYLING
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \definecolor{primary}{RGB}{0, 102, 204} % Academic Blue
+
+    \titleformat{\section}{
+      \large\normalfont\bfseries
+    }{\thesection}{1em}{}[\vspace{-0.8em}\color{primary}\rule{\linewidth}{0.8pt}]
+
+  }
+}[
+  \PackageError{kshafayetCV}{Unknown CV type '\CV@type'. Use type=academic or type=industry.}{}
+]
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TYPOGRAPHY AND STYLING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Section styling with small caps for elegant headers
-\titleformat{\section}{\Large\normalfont\scshape\bfseries}{\thesection}{1em}{}
-\allsectionsfont{\mdseries\scshape}
 
 % Prevent typographical widows and orphans
 \clubpenalty=10000
@@ -74,8 +196,6 @@
 \displaywidowpenalty=10000
 
 % Primary theme color - customize by changing RGB values
-\definecolor{primary}{RGB}{83, 39, 115}  % Default: Royal purple
-% \definecolor{primary}{RGB}{0, 102, 204} % Academic Blue
 % \definecolor{primary}{RGB}{153, 51, 102}  % Professional burgundy
 
 % Hyperlink setup with primary color

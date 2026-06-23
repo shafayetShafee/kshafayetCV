@@ -1,0 +1,274 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CV using kshafayetCV Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{article}
+
+\usepackage[type=industry]{kshafayetCV}
+
+\cvtrue
+
+\addbibresource{../bibs/publications.bib}
+\addbibresource{../bibs/preprints.bib}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header with name and contact information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Name at top of CV
+\cvname{Shafayet Khan Shafee}
+
+%-----------------------------------------------------------------
+% \contactbar{Email}{Website}{GitHub}
+%            {LinkedIn}{Google Scholar URL}
+%            {Phone}{Location}
+%-----------------------------------------------------------------
+\contactbar{sshafee@isrt.ac.bd}{kshafayet.netlify.app}
+           {shafayetShafee}{shafayetshafee}
+           {https://scholar.google.com/citations?user=GSgDEx0AAAAJ&hl}
+           {+880-1791-051104}
+           {Dhaka, Bangladesh}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Intro
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}
+
+Statistician and data scientist applying rigorous statistical methods to public
+health research and industry problems, with a commitment to reproducible research
+and open-source software development.
+
+\vspace{-2pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Education
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Education}
+
+\edublock[
+  \item \textbf{Thesis:} Extended the median odds ratio framework for quantifying
+        between-cluster variation in three-level hierarchical data with a binary
+        outcome, and developed corresponding interval estimators.
+  \item \textbf{Selected Coursework:} Causal Inference; Multilevel Modeling;
+        Bayesian Inference; Spatial Statistics; Statistical Machine Learning.
+]
+{M.Sc. in Applied Statistics}
+[GPA 3.97 / 4.00]
+{Institute of Statistical Research \& Training}
+[University of Dhaka]
+{Dhaka, Bangladesh}
+{2022--2023}
+
+\vspace{8pt}
+
+\edublock[
+  \item \textbf{Project:} Examined the association between caregivers' stimulation
+        activities and socio-emotional development in under-five children using
+        nationally representative MICS 2019 Bangladesh data and survey-weighted
+        logistic regression analysis.
+  \item \textbf{Selected Coursework:} Statistical Inference; Sampling Methods;
+        Multivariate Statistics; Generalized Linear Models; Analysis of Time Series;
+        Design \& Analysis of Experiments; Epidemiology; Survival Analysis; Econometrics;
+        Actuarial Statistics; Industrial Statistics \& Operations Research.
+]
+{B.Sc. in Applied Statistics}
+[CGPA 3.96 / 4.00]
+{Institute of Statistical Research \& Training}
+[University of Dhaka]
+{Dhaka, Bangladesh}
+{2018--2022}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Experience
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Professional Experience}
+
+\cvblock[
+  \item Applied Bayesian experimental design (Bayes Factor Design Analysis)
+        to estimate sample sizes for controlled product experiments,
+        incorporating prior information and evidence-based stopping criteria.
+  \item Designed and analyzed randomized controlled experiments, including
+        randomization checks through covariate balance assessment and Sample
+        Ratio Mismatch (SRM) testing, to evaluate business initiatives.
+  \item Estimated causal effects of a fintech product intervention on merchant
+        transaction behavior using propensity score matching and
+        Difference-in-Differences.
+  \item Applied Hierarchical Bayesian modeling to evaluate adoption across
+        cohorts in a controlled experiment, accounting for small and unequal
+        group sizes and quantifying uncertainty through posterior distributions.
+  \item Applied causal ML methods, namely Double ML and generalized random
+        forests, to estimate heterogeneous treatment effects across user
+        subgroups, supporting targeted intervention design.
+  \item Co-developed a repayment risk scoring framework using Random Survival
+        Forests to model time-to-repayment distributions, drawing on
+        survival analysis methods for a credit risk application.
+  \item Built scalable analytical pipelines using dbt and BigQuery, supporting
+        reproducible statistical workflows and standardized automated analytical
+        reporting.
+]{Data Scientist}{Dhaka, Bangladesh}{Pathao Limited}{Jul 2023--Present}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Publications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifcv
+\section*{Publications}
+
+% Define note explaining publication symbols for author annotations
+\defbibnote{symbols}{$^\dagger$ Corresponding author \enspace $^*$ Equal contribution}
+
+\nocite{*}
+\printbibliography[heading=none, prenote=symbols]
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Honors & Awards
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Awards \& Achievements}
+
+\begin{itemize}
+  \awarditem{Dean's Award}
+            {Faculty of Science, University of Dhaka}
+            {2025}
+
+  \awarditem{Conference Award for Scientists}
+            [for the abstract ``Interval Estimation of the Median Odds
+            Ratio for Measuring Contextual Effects in Multilevel Data Using a
+            Binary Logistic Model'']
+            {45th Annual Conference of the International Society for Clinical
+            Biostatistics (ISCB45), Thessaloniki, Greece}
+            {2024}
+
+  % \awarditem{Datathon Finalist}
+  %           [Ranked among the top 10 teams out of 300; developed an algorithm for
+  %           predicting mobile data packages purchase behavior]
+  %           {Robi Axiata Limited, Dhaka, Bangladesh.}
+  %           {2024}
+
+  \awarditem{National Science and Technology (NST) Fellowship}
+            [for M.Sc.\ thesis research on multilevel modeling]
+            {Ministry of Science and Technology (MoST), Government of Bangladesh}
+            {2023}
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Talks & Presentations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifcv
+\section*{Talks \& Presentations}
+
+\begin{itemize}
+  \cvitem{``On the Estimation of the Median Odds Ratio for Measuring Contextual
+          Effects in Multilevel Binary Data from Complex Survey Designs''}
+         {International Conference on Applied Statistics and Data Science
+          (ICASDS 2025), University of Dhaka, Bangladesh}
+         {2025}
+\end{itemize}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Technical Skills
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifcv
+\section*{Technical Skills}
+
+\begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
+
+  \item \textbf{Programming:} R, Python, SQL, Lua.
+
+  \item \textbf{Statistical Software:} Stata, Minitab.
+
+  \item \textbf{Machine Learning:} Ensemble Models, Causal ML (DML/GRF), Model
+        Calibration, Conformal Prediction.
+
+  \item \textbf{Data \& MLOps:} Shiny, BigQuery, dbt, Kedro, MLflow, Docker, Bash,
+                Google Data Studio, MixPanel.
+
+  \item \textbf{Others:} \LaTeX{}, Git, GitHub Actions, GitLab CI.
+
+\end{itemize}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Open Source Contributions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifcv
+\section*{Open Source Contributions}
+
+\subsection*{R Packages}
+
+\begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
+
+  \item \href{https://shafayetshafee.github.io/MOR/}{\texttt{MOR}} --- Post-estimation
+  functions to compute the Median Odds Ratio and corresponding confidence interval
+  from fitted multilevel binary logistic regression models.
+
+  \item \href{https://shafayetshafee.github.io/skmisc/}{\texttt{skmisc}} --- Miscellaneous
+  utility R functions.
+
+\end{itemize}
+
+\subsection*{Python Packages}
+
+\begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
+
+  \item \href{https://skmiscpy.readthedocs.io/en/latest/}{\texttt{skmiscpy}} ---
+   Reusable functions for causal inference diagnostics, including mirror histograms,
+   Love plots, and standardized mean difference (SMD) computation for inverse
+   probability weighting (IPW).
+
+  \item \href{https://github.com/shafayetShafee/kedrogen}{\texttt{kedrogen}} ---
+  CLI tool for scaffolding reproducible data science projects from cookiecutter templates.
+
+\end{itemize}
+
+
+\subsection*{Miscellaneous}
+
+\begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
+
+  \item \href{https://github.com/shafayetShafee/randomizer}{\texttt{randomizer}} ---
+        Dockerized Shiny application for random allocation of experimental units
+        into treatment groups with specified proportions, featuring SRM testing
+        and covariate balance diagnostics via Love plots.
+
+  \item Developed multiple \href{https://quarto.org/}{Quarto} extensions to
+        enhance scientific documents and presentations, including tools for code
+        highlighting (\href{https://github.com/shafayetShafee/line-highlight}{\texttt{line-highlight}}),
+        interactive SQL demonstrations (\href{https://github.com/shafayetShafee/interactive-sql}{\texttt{interactive-sql}}),
+        embedding downloadable resources (\href{https://github.com/shafayetShafee/downloadthis}{\texttt{downloadthis}}),
+        and presentation styling (\href{https://github.com/shafayetShafee/reveal-header}{\texttt{reveal-header}}),
+        available via the \href{https://quarto.org/docs/extensions/}{Quarto Extension Registry}.
+
+  \item \href{https://github.com/shafayetShafee/python-uv-gcloud}{\texttt{python-uv-gcloud}} ---
+        Minimal Docker base image with Python, \href{https://github.com/astral-sh/uv}{\texttt{uv}}, and
+        Google Cloud SDK for CI/CD pipelines and cloud workflows.
+
+  \item \href{https://github.com/shafayetShafee/uvshot}{\texttt{uvshot}} ---
+        Bash scripts for reproducible and isolated Python environment setup
+        using \texttt{uv}.
+
+\end{itemize}
+
+
+\fi
+
+
+\end{document}

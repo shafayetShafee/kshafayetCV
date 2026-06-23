@@ -94,7 +94,7 @@ case "$ENGINE" in
     *)        ENGINE_FLAG="-pdf" ;;
 esac
 
-latexmk -c $ENGINE_FLAG -interaction=nonstopmode -file-line-error "${NAME}.tex"
+latexmk -c -gg $ENGINE_FLAG -interaction=nonstopmode -file-line-error "${NAME}.tex"
 
 # TEXINPUTS="../styles//:" Rscript -e "tinytex::latexmk('${NAME}.tex', engine = '${ENGINE}', bib_engine = 'biber')"
 
