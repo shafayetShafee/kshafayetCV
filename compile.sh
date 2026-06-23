@@ -88,7 +88,15 @@ fi
 echo "Compiling '${NAME}.tex' in ${ABS_DIR}"
 echo "Engine: ${ENGINE}"
 
-Rscript -e "tinytex::latexmk('${NAME}.tex', engine = '${ENGINE}', bib_engine = 'biber')"
+case "$ENGINE" in
+    xelatex)  ENGINE_FLAG="-xelatex" ;;
+    lualatex) ENGINE_FLAG="-lualatex" ;;
+    *)        ENGINE_FLAG="-pdf" ;;
+esac
+
+latexmk -c $ENGINE_FLAG -interaction=nonstopmode -file-line-error "${NAME}.tex"
+
+# TEXINPUTS="../styles//:" Rscript -e "tinytex::latexmk('${NAME}.tex', engine = '${ENGINE}', bib_engine = 'biber')"
 
 # -----------------------------------------------------------------------------
 # Clean up
