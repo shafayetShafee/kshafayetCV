@@ -1,42 +1,59 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% kshafayetcv.sty - Modern, minimal, and modular LaTeX style
-% for academic CV
+% kshafayetCV.sty - A modular LaTeX CV style
 %
-% This CV is designed for academics, students, and researchers in STEM.
-% It prioritizes readability, ease-of-use, clean design, and typography.
-% It contains everything you need and nothing you don't.
+% A customized CV style derived from CleanCV by Gilad Turok:
+% https://github.com/giladturok/CleanCV
 %
-% Version: 0.0.9
-% Date: 2026/06/21
+% This version has been substantially modified and extended for
+% academic and industry CV workflows, including configurable CV types,
+% custom typography, font management, layout customization, contact
+% formatting, and reusable CV commands.
+%
+% Original work:
+%   CleanCV
+%   Copyright (c) 2025 Gilad Turok
+%   Licensed under the MIT License
+%   https://github.com/giladturok
+%
+% Modifications and extensions:
+%   Copyright (c) 2026 Shafayet Khan Shafee
+%
+% License:
+%   MIT License
+%   See LICENSE file in the repository for full license text.
+%
+% Version: 0.1.0
+% Date: 2026/06/26
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{kshafayetCV}[2026/06/21 Academic CV Style]
+\ProvidesPackage{kshafayetCV}[2026/06/21 Kshafayet CV Style]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PACKAGE DEPENDENCIES
 % Only essential packages are included for maintainability
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[T1]{fontenc}                % Font encoding
-\RequirePackage{fontawesome5}               % Icons for contact info
-\RequirePackage{academicons}                % Icons for contact info (orcid)
-\RequirePackage{geometry}                   % Page layout customization
-\RequirePackage{sectsty}                    % Section formatting
-\RequirePackage{hyperref}                   % Hyperlinks functionality
-\RequirePackage[dvipsnames]{xcolor}         % Color support
-\RequirePackage{enumitem}                   % List customization
-\RequirePackage{titlesec}                   % Section title formatting
-\RequirePackage{fancyhdr}                   % Header/footer customization
-\RequirePackage{etoolbox}                   % Conditional commands support
-\RequirePackage{xparse}
-\RequirePackage{xstring}
-\RequirePackage{fontspec}
-\RequirePackage{setspace}
-\RequirePackage{kvoptions}
+\RequirePackage{fontspec}                 % Custom font loading (XeLaTeX/LuaLaTeX)
+\RequirePackage{fontawesome5}             % Font Awesome icons for contact information
+\RequirePackage{academicons}              % Academic icons (e.g., Google Scholar, ORCID)
+\RequirePackage{geometry}                 % Page size and margin customization
+\RequirePackage{hyperref}                 % Hyperlinks and PDF metadata support
+\RequirePackage[dvipsnames]{xcolor}       % Color definitions and theme colors
+\RequirePackage{enumitem}                 % Custom list formatting and spacing control
+\RequirePackage{titlesec}                 % Section heading formatting and spacing
+\RequirePackage{fancyhdr}                 % Header and footer customization
+\RequirePackage{etoolbox}                 % Utility macros and conditional logic
+\RequirePackage{xparse}                   % Extended command definitions with optional arguments
+\RequirePackage{xstring}                  % String comparison utilities for conditional styling
+\RequirePackage{setspace}                 % Line spacing adjustments
+\RequirePackage{kvoptions}                % Key-value package options (e.g., type=academic/industry)
 
+% \RequirePackage[T1]{fontenc}                 % Font encoding
 % \RequirePackage[oldstyle,proportional]{ETbb} % ET Book font for elegant typography
-% \RequirePackage[sc,osf]{mathpazo}
+% \RequirePackage[sc,osf]{mathpazo}            % Yet another nice font for academic theme
+% \RequirePackage{sectsty}                     % Section formatting
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GLOBAL FONT CONFIGURATION
@@ -91,10 +108,11 @@
       BoldItalicFont = Cabin-BoldItalic,
     ]{Cabin-Regular}
 
+    \newcommand{\cvtitlefont}{\normalfont\scshape}
+
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % ACADEMIC PAGE LAYOUT
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
     \geometry{
       letterpaper,          % Use letter paper size
       left=2.5cm,           % Left margin
@@ -119,7 +137,6 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % ACADEMIC TYPOGRAPHY AND STYLING
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
     % Section styling with small caps for elegant headers
     \titleformat{\section}{\Large\normalfont\scshape\bfseries}{\thesection}{1em}{}
     \allsectionsfont{\mdseries\scshape}
@@ -133,50 +150,25 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % INDUSTRY FONTS
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newfontfamily\cvsectionfont[
+        Path = ../fonts/source-sans-3/,
+        Extension = .ttf,
+        UprightFont = SourceSans3-SemiBold,
+        BoldFont = SourceSans3-SemiBold,
+    ]{Source Sans 3}
 
-    % \setmainfont[
-    %     Path = ../fonts/calibri/,
-    %     Extension = .ttf,
-    %     UprightFont = calibri-regular,
-    %     ItalicFont = calibri-italic,
-    %     BoldFont = calibri-bold,
-    %     BoldItalicFont = calibri-bold-italic
-    % ]{Calibri}
-    %
-    % \setsansfont[
-    %     Path = ../fonts/calibri/,
-    %     Extension = .ttf,
-    %     UprightFont = calibri-regular,
-    %     ItalicFont = calibri-italic,
-    %     BoldFont = calibri-bold,
-    %     BoldItalicFont = calibri-bold-italic
-    % ]{Calibri}
-    %
-    % \setmainfont[
-    %     Path = ../fonts/source-sans-3/,
-    %     Extension = .ttf,
-    %     UprightFont = SourceSans3-Regular,
-    %     ItalicFont = SourceSans3-Italic,
-    %     BoldFont = SourceSans3-SemiBold,
-    %     BoldItalicFont = SourceSans3-SemiBoldItalic
-    % ]{Source Sans 3}
-    %
-    % \setsansfont[
-    %     Path = ../fonts/source-sans-3/,
-    %     Extension = .ttf,
-    %     UprightFont = SourceSans3-Regular,
-    %     ItalicFont = SourceSans3-Italic,
-    %     BoldFont = SourceSans3-SemiBold,
-    %     BoldItalicFont = SourceSans3-SemiBoldItalic
-    % ]{Source Sans 3}
+    \newfontfamily\cvtitlefont[
+        Path = ../fonts/spectral-sc/,
+        Extension = .ttf,
+        UprightFont = SpectralSC-Regular,
+        BoldFont = SpectralSC-Regular,
+    ]{SpectralSC}
 
     \setmainfont[
-        Renderer = HarfBuzz,
         UprightFont = ../fonts/calibri/calibri-regular.ttf,
         ItalicFont = ../fonts/calibri/calibri-italic.ttf,
         BoldFont = ../fonts/source-sans-3/SourceSans3-SemiBold.ttf,
     ]{Calibri Custom}
-
 
     \setsansfont[
         UprightFont = ../fonts/calibri/calibri-regular.ttf,
@@ -187,23 +179,22 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % INDUSTRY PAGE LAYOUT
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
     \pagestyle{empty}
 
     \geometry{
       a4paper,              % Use A4 paper size
       left=1.5cm,           % Left margin
       right=1.5cm,          % Right margin
-      top=1.5cm,              % Top margin
+      top=1.5cm,            % Top margin
       bottom=1.5cm          % Bottom margin
     }
 
     \setlength{\parindent}{0pt}
     \setlength{\parskip}{0.1em}
-    \titlespacing*{\section}{0pt}{1.0em}{0.3em}
+    \titlespacing*{\section}{0pt}{0.8em}{0.2em}
     \titlespacing*{\subsection}{0pt}{0.6em}{0.2em}
 
-    \setstretch{1.1}
+    \setstretch{1.05}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % INDUSTRY TYPOGRAPHY AND STYLING
@@ -212,8 +203,8 @@
     \definecolor{primary}{RGB}{0, 102, 204} % Academic Blue
 
     \titleformat{\section}{
-      \large\normalfont\bfseries
-    }{\thesection}{1em}{}[\vspace{-0.8em}\color{primary}\rule{\linewidth}{0.8pt}]
+      \cvsectionfont\large
+    }{\thesection}{1em}{}[\vspace{-0.9em}\color{primary}\rule{\linewidth}{0.4pt}]
 
   }
 }[
@@ -245,6 +236,7 @@
   pdfproducer={}
 }
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HEADER COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -252,7 +244,7 @@
 % Command for name at top of CV
 \newcommand{\cvname}[1]{
   \begin{center}
-    {\Huge \textsc{#1}}
+    {\cvtitlefont\Huge{#1}}
   \end{center}
 }
 
@@ -298,25 +290,20 @@
   \end{center}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% CV/RESUME MODE SWITCH
-% Controls which sections are displayed
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newif\ifcv
-\cvtrue  % Default to CV mode (includes all sections)
-         % Use \cvfalse to default to resume mode (fewer sections)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONTENT FORMATTING COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newlength{\gap}
+\newlength{\cvitemsep}
 
 \IfStrEq{\CV@type}{industry}{
-  \setlength{\gap}{0pt}
+  \setlength{\gap}{-1pt}
+  \setlength{\cvitemsep}{3pt}
 }{
   \setlength{\gap}{1pt}
+  \setlength{\cvitemsep}{3pt}
 }
 
 % Detailed entry for positions with optional bullet points
@@ -333,7 +320,7 @@
   \par
   \ifx&#1&\else
     \vspace{2pt}
-    \begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
+    \begin{itemize}[itemsep=\cvitemsep, parsep=0pt, topsep=0pt, leftmargin=*]
       #1
     \end{itemize}
   \fi
@@ -362,7 +349,7 @@
   \par
   \ifx&#1&\else
     \vspace{2pt}
-    \begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
+    \begin{itemize}[itemsep=\cvitemsep, parsep=0pt, topsep=0pt, leftmargin=*]
       #1
     \end{itemize}
   \fi
@@ -388,10 +375,9 @@
   \vspace{5pt}
 }
 
-
-
 % Configure itemize environment for compact, clean lists
 \setlist[itemize]{itemsep=0pt, parsep=0pt, topsep=0pt, leftmargin=*}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BIBLIOGRAPHY MANAGEMENT

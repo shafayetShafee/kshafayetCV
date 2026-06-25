@@ -6,8 +6,6 @@
 
 \usepackage[type=industry]{kshafayetCV}
 
-\cvtrue
-
 \addbibresource{job.bib}
 
 \begin{document}
@@ -37,13 +35,15 @@
 
 \vspace{5pt}
 
-Data Scientist specializing in causal inference, machine learning, and experimentation
-for product decisions, with hands-on experience in fintech, including BNPL systems.
-Brings end-to-end ownership from framing ambiguous product questions to measurable,
-actionable outcomes through experimentation and causal and predictive modeling,
-with additional experience of shipping ML and data pipelines to production.
-Drawn to problems at the intersection of causal inference, ML, and Bayesian methods,
-with a strong interest in high-scale, product-led data environments.
+Data Scientist specializing in experimentation, causal inference, and machine
+learning for data-driven decision-making, with experience building analytics
+systems and ML solutions in fintech. Experienced in owning the full analytical
+lifecycle, from framing ambiguous business problems to delivering measurable
+outcomes through experimentation, causal analysis, Bayesian methods, and
+predictive modeling, including shipping ML and data pipelines to production.
+Interested in applying rigorous statistical thinking to large-scale,
+product-led environments, particularly at the intersection of causal inference
+and Bayesian methods.
 
 \vspace{-2pt}
 
@@ -54,46 +54,95 @@ with a strong interest in high-scale, product-led data environments.
 \section*{Professional Experience}
 
 \cvblock[
-  \item Architected a centralised analytics data layer using dbt and BigQuery
-        on GCP, standardising metric definitions across teams and eliminating
-        ad-hoc query duplication, accelerating BI reporting cycles.
-  \item Designed and owned end-to-end A/B experiments for product and marketing
-        initiatives --- including randomization, cohort design, covariate balance
-        assessment, and significance testing --- directly informing decisions on
-        user incentive structures and campaign strategies.
-  \item Applied Bayesian experimental design (Bayes Factor Design Analysis) to
-        estimate sample sizes for controlled rollouts, replacing power-based
-        stopping rules with evidence-based criteria and enabling earlier,
-        more confident product decisions.
-  \item Estimated causal impact of a fintech product rollout on merchant
-        transaction behavior using propensity score matching and
-        Difference-in-Differences, enabling fair comparison across treated
-        and control groups.
-  \item Applied Hierarchical Bayesian modeling to evaluate product adoption
-        across cohorts of unequal and small sizes, quantifying uncertainty
-        through posterior distributions to support risk-aware product decisions.
-]{Data Scientist}{Dhaka, Bangladesh}{Pathao Pay}{Jan 2025--Present}
+
+  \item Led the design and execution of 5 end-to-end randomized experiments across
+  fintech product and marketing initiatives, spanning both user and merchant
+  populations. Translated experiment findings into product and growth decisions
+  by identifying actionable interventions, detecting ineffective interventions
+  early, and preventing unnecessary promotional spend.
+
+  \item Evaluated the causal impact of a fintech product rollout on merchant
+  business outcomes in a non-randomized setting using quasi-experimental
+  methods, including propensity score matching, inverse probability weighting,
+  and Difference-in-Differences. Generated causal evidence to support rollout
+  decisions when randomized experimentation was not feasible.
+
+  \item Improved controlled rollout planning by applying Bayesian experimental
+  design to determine sample sizes using probabilistic criteria, making tradeoffs
+  between statistical confidence, operational cost, and experiment efficiency
+  explicit and communicable to stakeholders.
+
+  \item Evaluated product adoption across small and unequal-sized cohorts using
+  hierarchical Bayesian modeling, enabling more reliable estimates under limited
+  data by quantifying uncertainty and supporting risk-aware rollout decisions.
+
+  \item Architected and maintained a centralized analytics transformation layer
+  using dbt and BigQuery on GCP, converting fragmented raw data sources into
+  structured analytical models. Built reusable production datasets that simplified
+  downstream analysis, reduced typical query scans from GB-scale to MB-scale,
+  lowered BigQuery costs, and standardized metrics across Growth, Product,
+  Operations, and Finance analytics teams.
+
+]{Data Scientist}{Dhaka, Bangladesh}{Pathao Pay}{Jan 2025 -- Present}
 
 \medskip
 
 \cvblock[
-  \item Built automated end-to-end reporting infrastructure using dbt,
-        BigQuery, Looker Studio, and Google Apps Script, enabling real-time
-        tracking of key business metrics and reducing manual reporting overhead.
-  \item Designed and analyzed randomized controlled experiments to evaluate
-        product initiatives, including randomization checks through covariate
-        balance assessment and Sample Ratio Mismatch (SRM) testing.
-  \item Applied causal ML methods --- Double ML and generalized random forests
-        --- to estimate heterogeneous treatment effects across user subgroups,
-        enabling targeted intervention design and personalized offer optimization.
-  \item Co-developed a repayment risk scoring framework using Random Survival
-        Forests to model time-to-repayment distributions, guiding targeted
-        outreach to high-risk users and improving CX resource allocation.
-  \item Co-developed a default risk prediction model for new BNPL applicants,
-        enabling risk-stratified cohort rollouts and directly contributing to
-        reduction in non-performing loan (NPL) rates.
-]{Data Scientist}{Dhaka, Bangladesh}{Pathao Limited}{Jul 2023--Dec 2024}
+  \item Designed and owned 2 end-to-end randomized experiments to optimize BNPL
+  repayment engagement, testing notification strategies across thousands of users.
+  Demonstrated the impact of increased repayment communications in reducing
+  post-due unpaid user rate, contributing to a ~4\% reduction after broader rollout without
+  negatively impacting monthly active users.
 
+  \item Developed a causal ML-based personalization framework using Double Machine
+  Learning and causal forests to estimate heterogeneous treatment effects across
+  user subgroups. Enabled targeted promotion strategies by identifying high-response
+  segments, contributing to a 35\% reduction in monthly promotional spend while
+  maintaining comparable user activity and business performance.
+
+  \item Co-developed a repayment collection prioritization framework using Random
+  Survival Forests to estimate time-to-repayment and stratify overdue BNPL users
+  by repayment likelihood. Optimized limited CX call capacity by prioritizing
+  users with higher likelihood of repayment following outreach while reducing
+  unnecessary collection efforts.
+
+  \item Co-developed a credit risk scoring framework for BNPL applicants using
+  XGBoost to estimate probability of default. Enabled risk-based user segmentation
+  and dynamic credit limit assignment, allowing the business to expand BNPL access
+  while managing credit risk exposure.
+
+  \item Built automated reporting workflows using dbt, BigQuery, Looker Studio,
+  and Google Apps Script, delivering executive dashboards used by Fintech
+  and Finance leadership to monitor key business metrics. Reduced manual
+  reporting overhead and improved access to timely business insights.
+
+]{Data Scientist}{Dhaka, Bangladesh}{Pathao Limited}{Jul 2023 -- Dec 2024}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Technical Skills
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Technical Skills}
+
+\begin{itemize}[itemsep=2pt, parsep=0pt, topsep=0pt, leftmargin=*]
+
+  \item \textbf{Programming Languages:} Python, R, SQL.
+
+  \item \textbf{Machine Learning:} Ensemble Methods, Survival Modeling, Conformal
+        Prediction, Model Calibration, Causal ML (DML, Causal Forest, BCF).
+
+  \item \textbf{Statistics:} Hypothesis Testing, Bayesian Modeling,
+        Causal Inference (IPW, Matching, DiD), A/B Testing, Time Series Analysis.
+
+  \item \textbf{Data \& ML Engineering:} dbt, Kedro, MLflow, Bash Scripting.
+
+  \item \textbf{Tools \& Platforms:} BigQuery, GCP, Docker, Git,
+        CI/CD (GitHub Actions, GitLab CI).
+
+  \item \textbf{Analytics \& Visualization:} Looker Studio, MixPanel, Shiny.
+
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,8 +153,8 @@ with a strong interest in high-scale, product-led data environments.
 
 \edublock[]{M.Sc. in Applied Statistics}
 [GPA 3.97 / 4.00]
-{Institute of Statistical Research \& Training}
-[University of Dhaka]
+{ISRT, University of Dhaka}
+[]
 {Dhaka, Bangladesh}
 {2022--2023}
 
@@ -113,8 +162,8 @@ with a strong interest in high-scale, product-led data environments.
 
 \edublock[]{B.Sc. in Applied Statistics}
 [CGPA 3.96 / 4.00]
-{Institute of Statistical Research \& Training}
-[University of Dhaka]
+{ISRT, University of Dhaka}
+[]
 {Dhaka, Bangladesh}
 {2018--2022}
 
@@ -123,12 +172,42 @@ with a strong interest in high-scale, product-led data environments.
 % Publications
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ifcv
 \section*{Publications}
 
 \nocite{*}
 \printbibliography[heading=none]
-\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Open Source Contributions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Open Source}
+
+\begin{itemize}[itemsep=2pt, parsep=0pt, topsep=0pt, leftmargin=*]
+
+  \item \href{https://skmiscpy.readthedocs.io}{\texttt{skmiscpy}} --- Python package
+        for causal inference diagnostics, including Love plots, mirror histograms,
+        and SMD computation for IPW workflows.
+
+  \item \href{https://github.com/shafayetShafee/randomizer}{\texttt{randomizer}} ---
+        Dockerized Shiny app for experimental unit randomization with SRM testing
+        and covariate balance diagnostics.
+
+  \item \href{https://github.com/shafayetShafee/kedrogen}{\texttt{kedrogen}} ---
+        CLI tool for scaffolding reproducible data science projects from
+        cookiecutter templates.
+
+  \item \href{https://github.com/shafayetShafee/python-uv-gcloud}{\texttt{python-uv-gcloud}} ---
+        Minimal Docker base image with Python, \texttt{uv}, and Google Cloud SDK
+        for CI/CD pipelines and cloud workflows.
+
+  \item \href{https://shafayetshafee.github.io/MOR/}{\texttt{MOR}} --- R package
+        implementing post-estimation functions to compute the Median Odds Ratio
+        and confidence intervals from fitted multilevel binary logistic models.
+
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,68 +237,5 @@ with a strong interest in high-scale, product-led data environments.
 \end{itemize}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Technical Skills
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\ifcv
-
-\section*{Technical Skills}
-
-\begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
-
-  \item \textbf{Programming Languages:} Python, R, SQL.
-
-  \item \textbf{Machine Learning:} Ensemble Methods, Survival Modeling, Conformal
-        Prediction, Model Calibration, Causal ML (DML, Causal Forest)
-        .
-  \item \textbf{Statistics \& Experimentation:} Hypothesis Testing, Bayesian Modeling,
-        Causal Inference (IPW, Matching, DiD), A/B Testing, Time Series Analysis.
-
-  \item \textbf{Data \& ML Engineering:} dbt, Kedro, MLflow, Bash Scripting.
-
-  \item \textbf{Tools \& Platforms:} BigQuery, GCP, Docker, Git,
-        CI/CD (GitHub Actions, GitLab CI).
-
-  \item \textbf{Analytics \& Visualization:} Looker Studio, MixPanel, Shiny.
-
-\end{itemize}
-
-\fi
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Open Source Contributions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\ifcv
-\section*{Open Source}
-
-\begin{itemize}[itemsep=3pt, parsep=0pt, topsep=0pt, leftmargin=*]
-
-  \item \href{https://skmiscpy.readthedocs.io}{\texttt{skmiscpy}} --- Python package
-        for causal inference diagnostics, including Love plots, mirror histograms,
-        and SMD computation for IPW workflows.
-
-  \item \href{https://github.com/shafayetShafee/randomizer}{\texttt{randomizer}} ---
-        Dockerized Shiny app for experimental unit randomization with SRM testing
-        and covariate balance diagnostics.
-
-  \item \href{https://github.com/shafayetShafee/kedrogen}{\texttt{kedrogen}} ---
-        CLI tool for scaffolding reproducible data science projects from
-        cookiecutter templates.
-
-  \item \href{https://github.com/shafayetShafee/python-uv-gcloud}{\texttt{python-uv-gcloud}} ---
-        Minimal Docker base image with Python, \texttt{uv}, and Google Cloud SDK
-        for CI/CD pipelines and cloud workflows.
-
-  \item \href{https://shafayetshafee.github.io/MOR/}{\texttt{MOR}} --- R package
-        implementing post-estimation functions to compute the Median Odds Ratio
-        and confidence intervals from fitted multilevel binary logistic models.
-
-\end{itemize}
-
-
-\fi
-
-
 \end{document}
+
