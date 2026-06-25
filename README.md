@@ -9,11 +9,10 @@ different CV workflows through configurable modes:
 - **industry** — optimized for data science, software, and technical job applications
 
 The style is based on [CleanCV](https://github.com/giladturok/CleanCV) by
-Gilad Turok and has been substantially modified and extended with custom
-typography, layout systems, font management, CV-specific commands, and
-academic/industry configurations.
+[Gilead Turok](https://github.com/giladturok) and has been substantially modified 
+and extended with custom typography, layout systems, font management, CV-specific 
+commands, and academic/industry configurations.
 
----
 
 ## Features
 
@@ -32,8 +31,6 @@ academic/industry configurations.
   - awards
   - publications
   - skills and short entries
-
----
 
 ## Requirements
 
@@ -57,8 +54,6 @@ bash compile.sh job-cv/job-cv.tex xelatex
 bash compile.sh academic-cv/academic-cv.tex xelatex
 ```
 
-
----
 
 # Usage
 
@@ -143,7 +138,6 @@ Features:
 - recruiter-friendly spacing
 - minimal visual hierarchy
 
----
 
 # Fonts
 
