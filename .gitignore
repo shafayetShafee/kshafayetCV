@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Font binaries
+fonts/**/*.ttf
+fonts/**/*.otf
